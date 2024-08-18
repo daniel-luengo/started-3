@@ -1,13 +1,13 @@
 <template>
-  <h1>Vue js</h1>
-  <Car />
+  <h2>Coche</h2>
+  <Test />
 </template>
 
 <script>
-import Car from "./components/Car";
+import Test from "./Test";
 export default {
   components: {
-    Car,
+    Test,
   },
 };
 </script>
