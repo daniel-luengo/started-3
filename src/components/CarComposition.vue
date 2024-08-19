@@ -1,9 +1,13 @@
 <template>
   <Test />
-  <h2>Coche</h2>
+  <h2>Car Composition Api Vue3: Coche</h2>
   <p>Marca {{ brand }}</p>
   <p>Modelo: {{ model }}</p>
-  <p>
+  <p>Potencia: {{ powers }}</p>
+
+  <button @click="upPower()">Aumentar</button>
+  <button @click="downPower()">Disminuir</button>
+  <!--  <p>
     Color:
     <span v-for="(color, index) in colors" :key="index">
       {{ color + " " }}
@@ -33,11 +37,12 @@
     <li v-if="power >= 300">{{ power }}</li>
   </ul>
   </p>
-  <p>Mensaje {{ mensaje.text }}</p>
+  <p>Mensaje {{ mensaje.text }}</p> -->
 </template>
 
 <script>
 import Test from "./Test";
+import { ref } from "vue";
 export default {
   // option api
   // data() {
@@ -58,10 +63,21 @@ export default {
     const model = "A4";
     const colors = ["Azul", "Rojo", "Morado", "Azul"];
     const price = 45000;
-    const powers = [60, 80, 120, 160, 200, 280, 300, 390, 540, 500];
+    // const powers = [60, 80, 120, 160, 200, 280, 300, 390, 540, 500];
+    let powers = ref(50);
     const mensaje = {
       title: "Estoy Bien",
       text: "Welcome",
+    };
+
+    //Las funciones van dentro de setup
+    let upPower = () => {
+      powers.value++;
+      console.log(powers);
+    };
+    const downPower = () => {
+      console.log("Disminuyendo potencia");
+      powers.value--;
     };
 
     return {
@@ -71,6 +87,8 @@ export default {
       price,
       powers,
       mensaje,
+      upPower,
+      downPower,
     };
   },
   components: {

@@ -1,5 +1,5 @@
 <template>
-  <p>Este es el componente Test</p>
+  <p></p>
 </template>
 
 <script>

@@ -1,13 +1,20 @@
 <template>
   <h1>Vue js</h1>
-  <Car />
+  <CarProps :power="power" />
 </template>
 
 <script>
-import Car from "./components/Car";
+import CarProps from "./components/CarProps.vue";
 export default {
   components: {
-    Car,
+    CarProps,
+  },
+  setup() {
+    let power = 30;
+
+    return {
+      power,
+    };
   },
 };
 </script>
